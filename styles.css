@@ -1,0 +1,62 @@
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --text:#1f2a2e; --muted:#55636a;
+  --sun:#f2b81c; --sea:#0f5c6e; --coral:#d9483b; --line:#e6dcc6; --on-sea:#ffffff;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#10191c; --surface:#17252a; --text:#f3eddf; --muted:#a9b6ba;
+    --sun:#f2b81c; --sea:#4fb3c8; --coral:#ff7a6b; --line:#2a3b41; --on-sea:#10191c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10191c; --surface:#17252a; --text:#f3eddf; --muted:#a9b6ba;
+  --sun:#f2b81c; --sea:#4fb3c8; --coral:#ff7a6b; --line:#2a3b41; --on-sea:#10191c;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 "Nunito Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;margin:0}
+.wrap{max-width:960px;margin:0 auto;padding:0 1.25rem}
+
+/* Hero: the Colombian flag's stripes as the page's signature */
+.flag{display:flex;height:14px}
+.flag i{display:block}
+.flag i:nth-child(1){flex:2;background:#f2b81c}
+.flag i:nth-child(2){flex:1;background:#1d4f9c}
+.flag i:nth-child(3){flex:1;background:#d9483b}
+.hero{padding:4rem 0 3rem}
+.hero h1{font-weight:800;font-size:clamp(2.6rem,9vw,5.5rem);letter-spacing:-.02em;max-width:12ch}
+.hero p.lead{font-size:1.25rem;max-width:34rem;color:var(--muted);margin:1.25rem 0 2rem}
+.btn{display:inline-block;background:var(--coral);color:#fff;font-weight:700;font-size:1.125rem;
+  padding:1rem 2rem;border-radius:999px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(217,72,59,.35)}
+.btn:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
+.dates{margin-top:1rem;color:var(--muted);font-weight:600}
+
+section{padding:3rem 0}
+h2{font-size:clamp(1.8rem,5vw,2.5rem);margin-bottom:1.25rem}
+
+/* Trips */
+.trips{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media(min-width:700px){.trips{grid-template-columns:1fr 1fr}}
+.trip{background:var(--surface);border:1px solid var(--line);border-top:8px solid var(--sun);border-radius:6px;padding:1.5rem}
+.trip.b{border-top-color:var(--sea)}
+.trip h3{font-size:1.75rem;margin-bottom:.25rem}
+.trip .when{font-weight:700;color:var(--sea);margin:0 0 .75rem}
+.trip p{margin:0;color:var(--muted)}
+.note{margin-top:1rem;color:var(--muted)}
+
+/* Details */
+.details{display:grid;gap:2rem;grid-template-columns:1fr}
+@media(min-width:700px){.details{grid-template-columns:repeat(3,1fr)}}
+.details h3{font-size:1.25rem;margin-bottom:.5rem}
+.details p{margin:0;color:var(--muted)}
+
+/* Closing CTA */
+.final{background:var(--sea);color:var(--on-sea);text-align:center;padding:3.5rem 1.25rem;border-radius:8px;margin:1rem 0 3rem}
+.final h2{margin-bottom:.75rem}
+.final p{max-width:32rem;margin:0 auto 1.75rem}
+footer{padding:0 0 2.5rem;color:var(--muted);font-size:.95rem;text-align:center}
